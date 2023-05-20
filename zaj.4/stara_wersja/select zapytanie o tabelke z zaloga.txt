@@ -1,0 +1,28 @@
+SELECT
+  l.id_lot,
+  l.id_samolot,
+  l.id_zaloga,
+  z1.nazwisko_zaloga AS nazwisko_zaloga_1,
+  z1.imie_zaloga AS imie_zaloga_1,
+  l.zal_id_zaloga,
+  z2.nazwisko_zaloga AS nazwisko_zaloga_2,
+  z2.imie_zaloga AS imie_zaloga_2,
+  l.zal_id_zaloga2,
+  z3.nazwisko_zaloga AS nazwisko_zaloga_3,
+  z3.imie_zaloga AS imie_zaloga_3,
+  l.id_destynacja,
+  d.nazwa_destynacja,
+  l.des_id_destynacja,
+  l.zal_id_zaloga3,
+  z4.nazwisko_zaloga AS nazwisko_zaloga_4,
+  z4.imie_zaloga AS imie_zaloga_4,
+  l.identyfikator_lot,
+  l.data_wylot,
+  l.data_przylot
+FROM
+  lot l
+  JOIN zaloga z1 ON l.id_zaloga = z1.id_zaloga
+  JOIN zaloga z2 ON l.zal_id_zaloga = z2.id_zaloga
+  JOIN zaloga z3 ON l.zal_id_zaloga2 = z3.id_zaloga
+  JOIN zaloga z4 ON l.zal_id_zaloga3 = z4.id_zaloga
+  JOIN destynacja d ON l.id_destynacja = d.id_destynacja;
